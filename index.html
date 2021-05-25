@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="alert alert-success d-flex justify-content-between align-items-center" role="alert">
+      <strong>Well done!</strong>
+      <button class="btn" id="close">Close</button>
+    </div>
+
+    <div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
+      <strong>Error!</strong>
+      <button class="btn" id="closeWarn">Close</button>
+    </div>
+
+    <div class="getId group">
+      <span class="badge badge-info">Get task by ID</span>
+      <div class="input-group input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">ID</span>
+        </div>
+        <input type="text" class="form-control" id="id" maxlength="24 maxlength=" 25"">
+      </div>
+      <button id="get" class="btn btn-success">Get task by ID</button>
+      <div class="getTask row"></div>
+    </div>
+
+    <div class="getAll">
+      <span class="badge badge-info badge_all">Get all tasks</span>
+      <button id="getAll" class="btn btn-success">Get all tasks</button>
+      <button id="clear" class="btn btn-warning">Clear</button>
+      <div class="allTasks"></div>
+    </div>
+
+    <aside class="aside">
+      <div class="delId group">
+        <span class="badge badge-info">Delete task by ID</span>
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">ID</span>
+          </div>
+          <input type="text" class="form-control" id="delId" maxlength="24 maxlength=" 25"">
+        </div>
+        <button id="del" class="btn btn-warning">Delete by ID</button>
+      </div>
+
+      <div class="create group">
+        <span class="badge badge-info">Create new task</span>
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Title</span>
+          </div>
+          <input type="text" class="form-control" id="createTitle" maxlength="25">
+        </div>
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Description</span>
+          </div>
+          <input type="text" class="form-control" maxlength="100" id="createDesc">
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="createIsComplete">
+          <label class="custom-control-label" for="createIsComplete">Task is complete</label>
+        </div>
+        <button id="create" class="btn btn-success">Create new task</button>
+      </div>
+
+      <div class="patch group">
+        <span class="badge badge-info">Change task</span>
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">ID</span>
+          </div>
+          <input type="text" class="form-control" id="patchId" maxlength="24">
+        </div>
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Title</span>
+          </div>
+          <input type="text" class="form-control" id="patchTitle" maxlength="25">
+        </div>
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Description</span>
+          </div>
+          <input type="text" class="form-control" maxlength="100" id="patchDesc">
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="patchIsComplete">
+          <label class="custom-control-label" for="patchIsComplete">Task is complete</label>
+        </div>
+        <button id="patch" class="btn btn-success">Change task</button>
+    </aside>
+
+    <!-- <div id="allTasks">
+
+      <div class="task" v-for="task in tasks">
+        <h1 class="task__title">{{task.title}}</h1>
+        <p class="task__desc">Description: {{task.description}}</p>
+        <span>IsComplete: {{task.isComplete}}</span>
+        <p class="task__id">ID: {{task.id}}</p>
+      </div>
+
+    </div> -->
+
+    <div class="allTasks" id="allTasks">
+      <div class="task" v-for="task in tasks">
+        <h1 class="task__title">{{task['title']}}</h1>
+        <p class="task__desc">Description: {{task['description']}}</p>
+        <span>IsComplete: {{task['isComplete']}}</span>
+        <p class="task__id">ID: {{task['_id']}}</p>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/main.js"></script>
+</body>
+</html>
